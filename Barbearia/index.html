@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barbearia Estilo Fino</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .galeria img {
+      width: 100px;
+      margin: 10px;
+      border-radius: 8px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, select, textarea, button {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 1em;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Barbearia Estilo Fino</h1>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#agendamento">Agendamento</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>  <section id="sobre">
+    <h2>Sobre</h2>
+    <p>Somos especialistas em cortes masculinos, barba e estilo. Atendimento de qualidade com um ambiente acolhedor e profissional.</p>
+  </section>  <section id="portfolio">
+    <h2>Nosso Trabalho</h2>
+    <div class="galeria">
+      <img src="https://via.placeholder.com/100" alt="Corte 1" />
+      <img src="https://via.placeholder.com/100" alt="Corte 2" />
+      <img src="https://via.placeholder.com/100" alt="Corte 3" />
+    </div>
+  </section>  <section id="servicos">
+    <h2>Serviços e Preços</h2>
+    <ul>
+      <li>Corte Masculino - R$ 30</li>
+      <li>Barba - R$ 20</li>
+      <li>Combo Corte + Barba - R$ 45</li>
+    </ul>
+  </section>  <section id="agendamento">
+    <h2>Agende seu Horário</h2>
+    <form id="formAgendamento" onsubmit="enviarWhatsApp(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <input type="tel" id="telefone" placeholder="WhatsApp" required />
+      <select id="servico" required>
+        <option value="">Escolha o serviço</option>
+        <option value="Corte">Corte</option>
+        <option value="Barba">Barba</option>
+        <option value="Combo">Combo Corte + Barba</option>
+      </select>
+      <input type="date" id="data" required />
+      <input type="time" id="hora" required />
+      <button type="submit">Agendar pelo WhatsApp</button>
+    </form>
+  </section>  <section id="contato">
+    <h2>Contato</h2>
+    <p>Endereço: Rua Exemplo, 123 - Cidade</p>
+    <p>WhatsApp: <a href="https://wa.me/5599999999999">(99) 99999-9999</a></p>
+    <p>Instagram: <a href="https://instagram.com/suababarbearia" target="_blank">@suabarbearia</a></p>
+  </section>  <footer>
+    <p>&copy; 2025 Barbearia Estilo Fino. Todos os direitos reservados.</p>
+  </footer>  <script>
+    function enviarWhatsApp(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const servico = document.getElementById('servico').value;
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+
+      const mensagem = `Olá, me chamo ${nome}. Gostaria de agendar um serviço de ${servico} para o dia ${data} às ${hora}. Meu contato é ${telefone}.`;
+
+      const numeroBarbearia = '5599999999999'; // Substitua pelo seu número com DDD e código do país
+      const url = `https://wa.me/${numeroBarbearia}?text=${encodeURIComponent(mensagem)}`;
+
+      window.open(url, '_blank');
+    }
+  </script></body>
+</html>
